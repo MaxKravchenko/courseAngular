@@ -225,8 +225,50 @@
           <clipPath id="a"><path fill="#fff" d="M0 0h982v239H0z" /></clipPath>
         </defs>
       </svg>
-      <h1>Hello, {{ title }}</h1>
+      
+      <app-header />
+
+      <app-notes-list />
+
+      <p>-----------------------------------------------------------</p>
+
+      <label>
+        User Name:
+        <input type="text" [(ngModel)]="name" />
+        User Password:
+        <input type="text" [(ngModel)]="password" />
+      </label>
+      <p>{{ name }}</p>
+
+      <p>-----------------------------------------------------------</p>
+
+      <form (ngSubmit)="showName()">
+        <input type="text" [(ngModel)]="name" name="name" />
+        <input type="submit" value="Submit" />
+      </form>
+
+      <p>-----------------------------------------------------------</p>
+
+      <button (click)="login()">Click me</button>
+      <p [class.red]="isRed">some text for our page</p>
+      <button (click)="change()">Switch Background Color</button>
+
+      <p>-----------------------------------------------------------</p>
+
       <p>Congratulations! Your app is running. 🎉</p>
+
+      <p>-----------------------------------------------------------</p>
+
+      @for (item of products; track $index) {
+        <div>{{ item }}</div>
+      }
+
+      <p>-----------------------------------------------------------</p>
+
+      @if (loggedIn) {
+        <div>Welcome!</div>
+      }
+
     </div>
     <div class="divider" role="separator" aria-label="Divider"></div>
     <div class="right-side">
